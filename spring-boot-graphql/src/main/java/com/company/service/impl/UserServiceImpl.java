@@ -25,8 +25,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll()
                 .stream()
                 .map(user -> {
-                    UserRespDto userRespDto = userAdapter.map(user);
-                    return userRespDto;
+                    return userAdapter.map(user);
                 }).collect(Collectors.toList());
 
     }
@@ -40,16 +39,15 @@ public class UserServiceImpl implements UserService {
         return users
                 .stream()
                 .map(user -> {
-                    UserRespDto userRespDto = userAdapter.map(user);
-                    return userRespDto;
+                    return userAdapter.map(user);
                 }).collect(Collectors.toList());
 
     }
 
     @Override
     public UserRespDto findByUsername(String username) {
-        User user = userRepository.findByUsername(username);
-        return userAdapter.map(user);
+        return userAdapter.map(
+                userRepository.findByUsername(username));
     }
 
     @Override
@@ -57,7 +55,6 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.save(userAdapter.map(userCreateReqDto));
         return userAdapter.map(user);
     }
-
     @Override
     public void delete(String uuid) {
         userRepository.findByUuid(uuid);
