@@ -1,0 +1,36 @@
+type UserRespDto {
+    id: ID!,
+    uuid: String,
+    name: String,
+    surname: String,
+    username: String,
+    address: AddressRespDto
+
+}
+
+type AddressRespDto{
+    id: ID!,
+    uuid: String,
+    name: String
+}
+
+input UserCreateReqDto{
+    name: String,
+    surname: String,
+    username: String,
+    password: String,
+    address: AddressCreateReqDto
+}
+
+input AddressCreateReqDto{
+    name: String
+}
+
+type Query{
+    findByUsername(username: String):UserRespDto
+}
+
+type Mutation{
+    add(userCreateReqDto: UserCreateReqDto):UserRespDto
+}
+

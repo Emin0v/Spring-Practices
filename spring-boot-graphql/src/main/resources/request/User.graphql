@@ -1,0 +1,17 @@
+# add user to mysql
+mutation{
+    add(userCreateReqDto:{
+        name: "Mahammad"
+        surname: "Eminov"
+        username: "mahammad.eminov"
+        password: "123456"
+        address: {
+            name: "Balakan"
+        }
+    }){
+        id,
+        uuid,
+        name
+    }
+}
+
