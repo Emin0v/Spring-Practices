@@ -7,6 +7,7 @@ import com.company.repository.StudentRepository;
 import com.company.service.StudentService;
 import com.company.service.adapter.StudentAdapter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,5 +59,11 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     public void delete(String id) {
          studentRepository.delete(studentRepository.findById(id).get());
+         clearCache();
+    }
+
+    @CacheEvict(cacheNames = "studentCache")
+    public void clearCache(){
+        System.out.println("Cache cleared");
     }
 }
