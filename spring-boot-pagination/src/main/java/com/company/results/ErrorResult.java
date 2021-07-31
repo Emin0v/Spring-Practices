@@ -1,4 +1,4 @@
-package com.company.dto;
+package com.company.results;
 
 public class ErrorResult extends Result {
 
