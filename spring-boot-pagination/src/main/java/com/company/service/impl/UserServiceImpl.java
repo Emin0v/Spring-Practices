@@ -5,7 +5,6 @@ import com.company.dto.UserRespDTO;
 import com.company.entity.User;
 import com.company.repository.UserRepository;
 import com.company.results.DataResult;
-import com.company.results.ErrorDataResult;
 import com.company.results.Result;
 import com.company.results.SuccessDataResult;
 import com.company.service.UserService;
@@ -17,7 +16,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
