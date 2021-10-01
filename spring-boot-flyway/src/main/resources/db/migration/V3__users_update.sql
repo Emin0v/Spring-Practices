@@ -1,0 +1,1 @@
+update user set username='mahammademinov' where username='testuser'
