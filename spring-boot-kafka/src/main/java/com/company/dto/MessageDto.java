@@ -21,5 +21,4 @@ public class MessageDto {
     private Instant date = Instant.now();
 
 
-
 }
